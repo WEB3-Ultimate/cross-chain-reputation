@@ -1,7 +1,7 @@
 async function main() {
   const signer = (await locklift.keystore.getSigner("0"))!;
-  const { contract: sample, tx } = await locklift.factory.deployContract({
-    contract: "Sample",
+  const { contract: NonFungibleSBT, tx } = await locklift.factory.deployContract({
+    contract: "NonFungibleSBT",
     publicKey: signer.publicKey,
     initParams: {
       _nonce: locklift.utils.getRandomNonce(),
@@ -12,7 +12,7 @@ async function main() {
     value: locklift.utils.toNano(3),
   });
 
-  console.log(`Sample deployed at: ${sample.address.toString()}`);
+  console.log(NonFungibleSBT deployed at: ${NonFungibleSBT.address.toString()});
 }
 
 main()
